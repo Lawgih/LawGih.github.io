@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--簡陋計算機-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>計算機</title>
+</head>
+
+<body>
+	<h1>計算機</h1>
+	<input id="n1" type="text">
+	<input id="n2" type="text">
+	
+	<button onclick="add()" type="submit">+</button>
+	<button onclick="sub()" type="button">-</button>
+	<button onclick="mul()" type="button">*</button>
+	<button onclick="divi()" type="button">/</button>
+	
+	<p id="result"></p>
+	
+	<script>
+	
+		function add() {
+			var x = Number(document.getElementById("n1").value);
+			var y = Number(document.getElementById("n2").value);
+			var a = document.getElementById("result");
+			
+			try {
+			
+				if (x == "" || y == "") throw "empty";
+				if (isNaN(x) || isNaN(y)) throw "not a number";
+				document.getElementById("result").innerHTML = Number(x)+Number(y);
+			}
+			
+			  catch(err) {
+				a.innerHTML = "Input is " + err;
+			}
+		}
+		
+		function sub() {
+			var x = Number(document.getElementById("n1").value);
+			var y = Number(document.getElementById("n2").value);
+			var a = document.getElementById("result");
+			
+			try {
+			
+				if (x == "" || y == "") throw "empty";
+				if (isNaN(x) || isNaN(y)) throw "not a number";
+				document.getElementById("result").innerHTML = Number(x)-Number(y);
+			}
+			
+			  catch(err) {
+				a.innerHTML = "Input is " + err;
+			}
+		}
+		
+		function mul() {
+			var x = Number(document.getElementById("n1").value);
+			var y = Number(document.getElementById("n2").value);
+			var a = document.getElementById("result");
+			
+			try {
+			
+				if (x == "" || y == "") throw "empty";
+				if (isNaN(x) || isNaN(y)) throw "not a number";
+				document.getElementById("result").innerHTML = Number(x)*Number(y);
+			}
+			
+			  catch(err) {
+				a.innerHTML = "Input is " + err;
+			}
+		}
+		
+		function divi() {
+			var x = Number(document.getElementById("n1").value);
+			var y = Number(document.getElementById("n2").value);
+			var a = document.getElementById("result");
+			
+			try {
+			
+				if (x == "" || y == "") throw "empty";
+				if (isNaN(x) || isNaN(y)) throw "not a number";
+				document.getElementById("result").innerHTML = Number(x)/Number(y);
+			}
+			
+			  catch(err) {
+				a.innerHTML = "Input is " + err;
+			}
+		}
+		
+	</script>
+</body>
+</html>
