@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>猜拳</title>
+	<link rel="stylesheet" type="text/css" href="style/mora.css">
+</head>
+
+<body>
+	<h1>猜拳</h1>
+	<p id="message"></p>
+	<div id="area">
+		<div id="player">
+			<h2>玩家</h2>
+			<button value="1" onclick="mora(this)">剪</button>
+			<button value="2" onclick="mora(this)">拳</button>
+			<button value="3" onclick="mora(this)">布</button>
+		</div>
+
+		<div id="computer">
+			<h2>電腦</h2>
+			<div>
+				<p class="computer"></p>
+			</div>
+		</div>
+	</div>
+<script>
+	function mora(choice){	
+	
+		var x = choice.value;
+		var pc = {1:"剪", 2:"拳", 3:"布"};
+		var y = Number(Object.keys(pc)[Math.floor(Math.random()*Object.keys(pc).length)]); //random pc's key.
+		var message = document.getElementById("message");
+		var result; //result: 1=Drew, 2=Win, 3=Lose 
+		
+		document.getElementsByClassName("computer")[0].innerHTML = pc[y];
+		
+		if (x == y) {
+			result = 1;
+		} else if ((x==1 && y==3) || (x==2 && y==1) || (x==3 && y==2)){
+			result = 2;
+		} else {
+			result = 3;
+		}
+		
+		switch (result) {
+			case 1:
+				message.innerHTML = "DREW!";
+				break;
+				
+			case 2:
+				message.innerHTML = "YOU WIN!";
+				break;
+				
+			case 3:
+				message.innerHTML = "YOU LOSE!";
+				break;
+		}
+	}
+
+</script>
+</body>
+</html>
