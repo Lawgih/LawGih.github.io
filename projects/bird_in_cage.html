@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+	
+		h1, button {
+			width:350px;
+			text-align: center;
+		}
+		
+		button {
+			height: 50px;
+			font-size: 32px;
+			margin: 15px;
+		}
+		
+		body {
+			margin: 1% 30%;
+		}
+		
+		div {
+
+			width: 400px;
+			height: 400px;
+			background: url("https://i.imgur.com/LemoQ4z.jpg");
+			-webkit-animation: example 0.1s infinite paused;
+		}
+		
+		@keyframes example {
+			from {background: url("https://i.imgur.com/LemoQ4z.jpg");}
+			to {background: url("https://i.imgur.com/Yp3l6wk.gif");}
+		}
+</style>
+</head>
+<body>
+
+	<h1>籠中鳥</h1>
+	<button onclick="myPlayFunction()">Play</button>
+	<button onclick="myPauseFunction()">Pause</button>
+
+	<script>
+	function myPlayFunction() {
+	  document.getElementById("DIV").style.WebkitAnimationPlayState = "running"; // Code for Chrome, Safari, and Opera
+	  document.getElementById("DIV").style.animationPlayState = "running";
+	}
+
+	function myPauseFunction() {
+	  document.getElementById("DIV").style.WebkitAnimationPlayState = "paused"; // Code for Chrome, Safari, and Opera
+	  document.getElementById("DIV").style.animationPlayState = "paused";
+	}
+	</script>
+
+
+	<div id="DIV"></div>
+
+</body>
+</html>
