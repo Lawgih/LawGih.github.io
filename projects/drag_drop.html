@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Drag/Drop</title>
+	<style>
+		.fill {
+			position: relative;
+			width: 150px;
+			height: 150px;
+			top: 5px;
+			left: 5px;
+			background: url('https://i.imgur.com/vMdiEe6.png');
+		}
+		
+		.empty {
+			display: inline-block;
+			width: 160px;
+			height: 160px;
+			margin: 10px;
+			border: 3px black solid;
+		}
+		
+		.hold {
+			border: solid red 4px;
+		}
+		
+		.hovered {
+			background: gray;
+			border-style: dashed;
+		}
+		
+		.invisible {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Drag/Drop</h1>
+	<div class='empty'><div class='fill' draggable="true"></div></div>
+	<div class='empty'></div>
+	<div class='empty'></div>
+	<div class='empty'></div>
+	<div class='empty'></div>
+	
+	<a href="https://lawgih.github.io/index.html">Back</a>
+	<script>
+		const fill = document.querySelector('.fill');
+		const empties = document.querySelectorAll('.empty');
+		
+		fill.addEventListener('dragstart', dragStart);
+		fill.addEventListener('dragend', dragEnd);
+		
+		for(const empty of empties) {
+			empty.addEventListener('dragover', dragOver);
+			empty.addEventListener('dragenter', dragEnter);
+			empty.addEventListener('dragleave', dragLeave);
+			empty.addEventListener('drop', dragDrop);
+		}
+		
+		function dragStart() {
+			this.className += ' hold';
+			setTimeout(() => this.className='invisible', 0);
+		}
+		
+		function dragEnd() {
+			this.className = 'fill';
+		}
+		
+		function dragOver(e) {
+			e.preventDefault();
+		}
+		
+		function dragEnter(e) {
+			e.preventDefault();
+			this.className += ' hovered';
+		}
+		function dragLeave() {
+			this.className = "empty";
+		}
+		function dragDrop() {
+			this.className = "empty";
+			this.append(fill);
+		}
+	</script>
+</body>
+</html>
